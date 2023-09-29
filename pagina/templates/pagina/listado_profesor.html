@@ -1,0 +1,24 @@
+{% extends "compartidos/base.html" %}
+
+{% block head %}
+<title>Profesores</title>
+{% endblock head %}
+
+{% block h2_header %}
+<h2 class="masthead-heading mb-0">Profesores</h2>
+{% endblock h2_header %}
+
+{% block main %}
+<form action=""  >
+       {{formulario}}
+    <input type="submit" value = 'Buscar'>
+</form>
+
+<ul>
+    {% for profe in profe_encontrados %}
+    <li>{{profe}}</li>
+    {% endfor %}
+
+</ul>
+
+{% endblock main %}
