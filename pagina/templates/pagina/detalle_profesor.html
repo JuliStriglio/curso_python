@@ -1,0 +1,20 @@
+{% extends "compartidos/base.html" %}
+
+{% block head %}
+<title>Detalle Profesor</title>
+{% endblock head %}
+
+{% block h2_header %}
+<h2 class="masthead-heading mb-0">Detalle del Profesor con id: {{profesor.id}} </h2>
+{% endblock h2_header %}
+
+{% block main %}
+
+<ul>
+<li>Nombre : {{profesor.nombre}}</li>
+<li>Legajo : {{profesor.legajo}}</li>
+<li>Email : {{profesor.email}}</li>
+
+</ul>
+
+{% endblock main %}

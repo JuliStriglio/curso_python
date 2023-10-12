@@ -1,0 +1,21 @@
+{% extends "compartidos/base.html" %}
+
+{% block head %}
+<title>Alta Profesor</title>
+{% endblock head %}
+
+{% block h2_header %}
+<h2 class="masthead-heading mb-0">Eliminar profesor</h2>
+{% endblock h2_header %}
+
+{% block main %}
+
+<form action={% url "eliminar_profesor" profesor.id  %} method = "post">
+    {% csrf_token %}
+
+<p>Realmente quiere eliminar el profesor {{profe}}</p>
+
+<input type="submit" value= "Confirmar ">
+
+</form>
+{% endblock main %}

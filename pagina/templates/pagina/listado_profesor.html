@@ -9,17 +9,20 @@
 {% endblock h2_header %}
 
 {% block main %}
-<h3>Listado de Profesores</h3>
+<a href={% url "agregar_profesor" %} class = "btn btn-primary"> Agregar profesor</a>
 <form action=""  >
        {{formulario}}
     <input type="submit" value = 'Buscar'>
 </form>
-
+{% if profe_encontrados %}
 <ul>
     {% for profe in profe_encontrados %}
-    <li>{{profe}}</li>
+    <li><a > {{profe.nombre}}</a> || <a href={% url "detalle_profesor" profe.id %}> Detalles</a> || <a href={% url "editar_profesor" profe.id %}>Editar</a> || <a href={% url "eliminar_profesor" profe.id  %}> Eliminar </a></li>
     {% endfor %}
 
 </ul>
+{% else %}
+<p>No se encontraron profesores</p>
+{% endif %}
 
 {% endblock main %}
