@@ -1,0 +1,22 @@
+{% extends "compartidos/base.html" %}
+
+{% block head %}
+<title>Eliminar Materia</title>
+{% endblock head %}
+
+{% block h2_header %}
+<h2 class="masthead-heading mb-0">Eliminar Materia</h2>
+{% endblock h2_header %}
+
+{% block main %}
+
+<form action={% url "eliminar_materia" materia.id %} method = "post">
+    {% csrf_token %}
+    <p>Realmente quiere eliminar la materia {{materia.nombre}}</p>
+
+     <input type="submit" value= "Confirmar">
+
+</form>
+
+
+{% endblock main %}

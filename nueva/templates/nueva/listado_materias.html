@@ -1,0 +1,32 @@
+{% extends "compartidos/base.html" %}
+
+{% block head %}
+<title>Materias</title>
+{% endblock head %}
+
+{% block h2_header %}
+<h2 class="masthead-heading mb-0">Materias</h2>
+{% endblock h2_header %}
+
+
+{% block main %}
+<a href={% url "agregar_materia" %} class = "btn btn-primary"> Agregar Materia</a>
+
+<form action=""  >
+    <input type="text"name= 'nombre' placeholder = 'Ingrese nombre...'>
+    <input type="submit" value = 'Buscar'>
+</form>
+
+
+{% if listar_materias %}
+<ul>
+    {% for materia in listar_materias %}
+    <li><a > {{materia.nombre}}</a> || <a href={% url "detalle_materia" materia.id %}> Detalles</a> || <a href={% url "editar_materia" materia.id %}>Editar</a> || <a href={% url "eliminar_materia" materia.id  %}> Eliminar </a></li>
+    {% endfor %}
+
+</ul>
+{% else %}
+<p>No se encontraron Materias</p>
+{% endif %}
+
+{% endblock main %}

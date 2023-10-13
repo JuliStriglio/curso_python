@@ -1,0 +1,20 @@
+{% extends "compartidos/base.html" %}
+
+{% block head %}
+<title>Detalle Materia</title>
+{% endblock head %}
+
+{% block h2_header %}
+<h2 class="masthead-heading mb-0">Detalle de la Materia {{materia.nombre}}</h2>
+{% endblock h2_header %}
+
+{% block main %}
+
+<ul>
+    <li>Nombre : {{materia.nombre}}</li>
+    <li>Dia de cursado : {{materia.dia_cursado}}</li>
+    <li>Descripcion : {{materia.descripcion | safe }}</li>
+    <li>Fecha del parcial : {{materia.fecha_parcial}}</li>
+
+</ul>
+{% endblock main %}
