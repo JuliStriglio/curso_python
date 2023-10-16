@@ -3,7 +3,7 @@ from django.template import Template,Context
 from django.http import HttpResponse
 from pagina.models import Profesor
 from pagina.forms import agregarProfesorForm, busquedaProfesorForm , editarProfesorFormulario
-
+from django.contrib.auth.decorators import login_required
 
 
 
@@ -38,6 +38,7 @@ def detalle_profesor (request, profe_id) :
 
 #ELIMINAR PROFESOR##########################################################################
 
+@login_required
 def eliminar_profesor(request, profe_id): 
     profe_a_eliminar=Profesor.objects.get(id=profe_id)
     profe_a_eliminar.delete()
@@ -47,6 +48,7 @@ def eliminar_profesor(request, profe_id):
 
 #EDITAR PROFESOR##############################################################################
 
+@login_required
 def editar_profesor(request, profe_id):
      profesor_a_editar=Profesor.objects.get(id=profe_id)
     
@@ -80,3 +82,8 @@ def buscar_profesor(request) :
             
      formulario = busquedaProfesorForm()
      return render(request, r'pagina\listado_profesor.html', { 'formulario' : formulario, 'profe_encontrados' : profe_encontrados})
+ 
+ 
+
+def acerca_de_mi(request) : 
+     return render(request, 'pagina/about.html')

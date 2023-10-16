@@ -1,5 +1,5 @@
 from django.urls import path 
-from pagina.views import inicio, agregar_profesor, buscar_profesor, detalle_profesor, editar_profesor, eliminar_profesor
+from pagina.views import inicio, agregar_profesor, buscar_profesor, detalle_profesor, editar_profesor, eliminar_profesor, acerca_de_mi
 
 
 
@@ -7,6 +7,7 @@ from pagina.views import inicio, agregar_profesor, buscar_profesor, detalle_prof
 urlpatterns = [
     
     path('', inicio, name = 'inicio'),
+    path('about/', acerca_de_mi, name = 'about'),
     path('profesor/crear', agregar_profesor , name = 'agregar_profesor'),
     path('profesor/<int:profe_id>/detalle', detalle_profesor , name = 'detalle_profesor'),
     path('profesor/<int:profe_id>/editar', editar_profesor , name = 'editar_profesor'),

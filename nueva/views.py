@@ -15,7 +15,7 @@ class MateriaCreateView(CreateView):
     success_url = reverse_lazy('materias') 
     
     
-class MateriaDeleteView(DeleteView):
+class MateriaDeleteView(LoginRequiredMixin, DeleteView):
     model = Materia
     template_name = "nueva/eliminar_materia.html"
     success_url = reverse_lazy('materias') 
@@ -25,7 +25,7 @@ class MateriaDetailView(DetailView):
     template_name = "nueva/detalle_materia.html"
 
 
-class MateriaUpdateView(UpdateView):
+class MateriaUpdateView(LoginRequiredMixin, UpdateView):
     model = Materia
     template_name = "nueva/editar_materia.html"
     fields = ['nombre', 'dia_cursado', 'descripcion', 'fecha_parcial']
