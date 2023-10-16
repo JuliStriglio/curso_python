@@ -1,0 +1,23 @@
+{% extends "compartidos/base.html" %}
+
+{% block head %}
+<title>Login</title>
+{% endblock head %}
+
+{% block h2_header %}
+<h2 class="masthead-heading mb-0"> Login </h2>
+{% endblock h2_header %}
+
+{% block main %}
+
+<form action={% url "login" %} method = "post">
+    {% csrf_token %}
+
+    <table>
+        {{formulario}}
+    </table>
+
+<input type="submit" value= "Iniciar sesion">
+
+</form>
+{% endblock main %}

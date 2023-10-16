@@ -6,7 +6,7 @@ from pagina.views import inicio, agregar_profesor, buscar_profesor, detalle_prof
 
 urlpatterns = [
     
-    path('', inicio),
+    path('', inicio, name = 'inicio'),
     path('profesor/crear', agregar_profesor , name = 'agregar_profesor'),
     path('profesor/<int:profe_id>/detalle', detalle_profesor , name = 'detalle_profesor'),
     path('profesor/<int:profe_id>/editar', editar_profesor , name = 'editar_profesor'),

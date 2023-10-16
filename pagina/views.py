@@ -63,7 +63,7 @@ def editar_profesor(request, profe_id):
             return render(request, 'pagina/editar_profesor.html', {'formulario': formulario})
     
      formulario = editarProfesorFormulario(initial={'nombre': profesor_a_editar.nombre, 'legajo' : profesor_a_editar.legajo, 'email' : profesor_a_editar.email})
-     return render(request, r'inicio\editar_profesor.html', {'formulario': formulario})
+     return render(request, r'pagina\editar_profesor.html', {'formulario': formulario})
 
 
 

@@ -1,0 +1,23 @@
+{% extends "compartidos/base.html" %}
+
+{% block head %}
+<title>Editar perfil</title>
+{% endblock head %}
+
+{% block h2_header %}
+<h2 class="masthead-heading mb-0"> Editar perfil </h2>
+{% endblock h2_header %}
+
+{% block main %}
+
+<form action={% url "editar_perfil" %} method = "post">
+    {% csrf_token %}
+
+    <table>
+        {{formulario}}
+    </table>
+
+<input type="submit" value= " Editar ">
+
+</form>
+{% endblock main %}

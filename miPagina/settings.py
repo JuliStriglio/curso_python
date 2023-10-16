@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'pagina',
     'nueva',
     'ckeditor',
-]
+    'cuentas',
+    ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

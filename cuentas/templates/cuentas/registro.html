@@ -1,0 +1,23 @@
+{% extends "compartidos/base.html" %}
+
+{% block head %}
+<title>Registro</title>
+{% endblock head %}
+
+{% block h2_header %}
+<h2 class="masthead-heading mb-0"> Registro </h2>
+{% endblock h2_header %}
+
+{% block main %}
+
+<form action={% url "registro" %} method = "post">
+    {% csrf_token %}
+
+    <table>
+        {{formulario}}
+    </table>
+
+<input type="submit" value= " Registrarse ">
+
+</form>
+{% endblock main %}
