@@ -5,7 +5,7 @@
 {% endblock head %}
 
 {% block h2_header %}
-<h2 class="masthead-heading mb-0">Detalle del Profesor con id: {{profesor.id}} </h2>
+<h2 class="masthead-heading mb-0">Detalle del Profesor con Legajo: {{profesor.legajo}} </h2>
 {% endblock h2_header %}
 
 {% block main %}
@@ -14,6 +14,10 @@
 <li>Nombre : {{profesor.nombre}}</li>
 <li>Legajo : {{profesor.legajo}}</li>
 <li>Email : {{profesor.email}}</li>
+<li>Fecha nacimiento : {{profesor.fecha_nac}}</li>
+<li>Link al video de presentacion : {{profesor.link}}</li>
+{% load static %}
+<li><img src={{profesor.avatar.url}} alt="" height='80mp'></li>
 
 </ul>
 

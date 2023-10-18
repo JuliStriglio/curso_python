@@ -1,4 +1,4 @@
-from django.contrib.auth.forms import UserCreationForm, UserChangeForm
+from django.contrib.auth.forms import UserCreationForm, UserChangeForm, PasswordChangeForm
 from django.contrib.auth.views import PasswordChangeView
 from django import forms
 from django.contrib.auth.models import User
@@ -27,12 +27,8 @@ class formularioDeEditarPerfil (UserChangeForm):
         fields = ['email', 'first_name', 'last_name', 'link', 'avatar']
         
 
-class formularioCambiarPass (PasswordChangeView):
-    old_pass = forms.CharField(label='Contraseña vieja', widget = forms.PasswordInput)
-    password1 = forms.CharField(label='Contraseña nueva', widget = forms.PasswordInput)
-    password1 = forms.CharField(label='Repetir contraseña nueva', widget = forms.PasswordInput)
-    
-    class Meta :
-        model = User 
-        fields = ['old_pass', 'password1', 'password2']
-        help_texts = {campo : '' for campo in fields}
+class formularioCambiarPass (PasswordChangeForm) :
+    pass_old = forms.CharField(label='Contraseña vieja', widget = forms.PasswordInput)
+    password1 = forms.CharField(label='Nueva contraseña :', widget = forms.PasswordInput)
+    password2 = forms.CharField(label='Repetir nueva contraseña :', widget = forms.PasswordInput)
+

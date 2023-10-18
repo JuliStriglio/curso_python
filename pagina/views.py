@@ -3,9 +3,12 @@ from django.template import Template,Context
 from django.http import HttpResponse
 from pagina.models import Profesor
 from pagina.forms import agregarProfesorForm, busquedaProfesorForm , editarProfesorFormulario
-from django.contrib.auth.decorators import login_required
+from django.contrib.auth.decorators import login_required, user_passes_test
 
 
+
+ 
+    
 
 def inicio(request) : 
     
@@ -13,13 +16,14 @@ def inicio(request) :
 
 #AGREGAR PROFESOR#################################################################
 
+
 def agregar_profesor(request) :
   
     if request.method == 'POST' :
-        formulario = agregarProfesorForm(request.POST)
+        formulario = agregarProfesorForm(request.POST, request.FILES)
         if formulario.is_valid(): 
             data= formulario.cleaned_data
-            profesor = Profesor(nombre=data.get('nombre'), legajo=data.get('legajo'), email=data.get('email'))
+            profesor = Profesor(nombre=data.get('nombre'), legajo=data.get('legajo'), email=data.get('email'), fecha_nac = data.get('fecha_nac'), avatar = data.get('avatar'), link = data.get('link'))
             profesor.save()
             return redirect("profesores")
         else : 
@@ -53,18 +57,21 @@ def editar_profesor(request, profe_id):
      profesor_a_editar=Profesor.objects.get(id=profe_id)
     
      if request.method == 'POST':
-        formulario = editarProfesorFormulario(request.POST)
+        formulario = editarProfesorFormulario(request.POST, request.FILES)
         if formulario.is_valid():
             data = formulario.cleaned_data
             profesor_a_editar.nombre = data['nombre'] 
             profesor_a_editar.legajo = data['legajo'] 
             profesor_a_editar.email = data['email']
+            profesor_a_editar.fecha_nac = data['fecha_nac']
+            profesor_a_editar.avatar = data['avatar']
+            profesor_a_editar.link = data['link']
             profesor_a_editar.save()
             return redirect('profesores')
         else:
             return render(request, 'pagina/editar_profesor.html', {'formulario': formulario})
     
-     formulario = editarProfesorFormulario(initial={'nombre': profesor_a_editar.nombre, 'legajo' : profesor_a_editar.legajo, 'email' : profesor_a_editar.email})
+     formulario = editarProfesorFormulario(initial={'nombre': profesor_a_editar.nombre, 'legajo' : profesor_a_editar.legajo, 'email' : profesor_a_editar.email, 'fecha_nac' : profesor_a_editar.fecha_nac, 'avatar' : profesor_a_editar.avatar, 'link' : profesor_a_editar.link})
      return render(request, r'pagina\editar_profesor.html', {'formulario': formulario})
 
 

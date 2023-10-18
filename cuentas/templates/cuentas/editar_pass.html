@@ -13,9 +13,9 @@
 <form action={% url "editar_pass" %} method = "post">
     {% csrf_token %}
 
-    <table>
-        {{form}}
-    </table>
+    {{ form.pass_old.label_tag }} {{ form.pass_old }} <br>
+    {{ form.password1.label_tag }} {{ form.password1 }} <br>
+    {{ form.password2.label_tag }} {{ form.password2 }} <br>
 
 <input type="submit" value= " Confirmar ">
 
