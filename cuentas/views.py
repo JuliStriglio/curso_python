@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.contrib.auth import authenticate,login as django_login
-from cuentas.forms import formularioDeRegistro, formularioDeEditarPerfil, formularioCambiarPass, PasswordChangeForm
+from cuentas.forms import formularioDeRegistro, formularioDeEditarPerfil, formularioCambiarPass, formularioLogin
 from django.contrib.auth.views import PasswordChangeView 
 from django.urls import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -16,7 +16,7 @@ def login(request) :
     
     
     if request.method == 'POST' : 
-        formulario = AuthenticationForm(request, data=request.POST)
+        formulario = formularioLogin(request, data=request.POST)
         if formulario.is_valid(): 
             username = formulario.cleaned_data.get('username')
             password = formulario.cleaned_data.get('password')
@@ -29,7 +29,7 @@ def login(request) :
             
             return redirect('inicio')
     else : 
-        formulario = AuthenticationForm()
+        formulario = formularioLogin()
     
     return render(request, 'cuentas/login.html', {'formulario' : formulario})
 
