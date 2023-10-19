@@ -14,10 +14,13 @@
 <li>Nombre : {{profesor.nombre}}</li>
 <li>Legajo : {{profesor.legajo}}</li>
 <li>Email : {{profesor.email}}</li>
+<li>Historial :{{profesor.historial | safe}}</li>
 <li>Fecha nacimiento : {{profesor.fecha_nac}}</li>
 <li>Link al video de presentacion : {{profesor.link}}</li>
 {% load static %}
-<li><img src={{profesor.avatar.url}} alt="" height='80mp'></li>
+{% if profesor.avatar %}
+<li><img src={{profesor.avatar.url}} alt="" height='80mp' ></li>
+{% endif %}
 
 </ul>
 
