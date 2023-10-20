@@ -8,7 +8,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 
 # Create your views here.
 
-class MateriaCreateView(CreateView):
+class MateriaCreateView(LoginRequiredMixin,CreateView):
     model = Materia
     template_name = "nueva/agregar_materia.html"
     fields = ['nombre', 'dia_cursado', 'descripcion', 'fecha_parcial']

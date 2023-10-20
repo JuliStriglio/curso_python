@@ -16,7 +16,7 @@ def inicio(request) :
 
 #AGREGAR PROFESOR#################################################################
 
-
+@login_required
 def agregar_profesor(request) :
   
     if request.method == 'POST' :
