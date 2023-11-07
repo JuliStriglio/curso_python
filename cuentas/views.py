@@ -60,6 +60,7 @@ def editar_perfil (request) :
          if formulario.is_valid() : 
             
             info_extra.link= formulario.cleaned_data.get('link')
+            info_extra.descripcion = formulario.cleaned_data.get('descripcion')
             if formulario.cleaned_data.get('avatar'):
                info_extra.avatar = formulario.cleaned_data.get('avatar')
                
@@ -68,7 +69,7 @@ def editar_perfil (request) :
             formulario.save()
             return redirect('inicio')
         else : 
-          formulario = formularioDeEditarPerfil(initial = {'link' : info_extra.link , 'avatar' : info_extra.avatar} , instance=request.user)
+          formulario = formularioDeEditarPerfil(initial = {'link' : info_extra.link , 'avatar' : info_extra.avatar, 'descripcion' : info_extra.descripcion} , instance=request.user)
         return render(request, 'cuentas/editar_perfil.html', {'formulario': formulario})
     
 #EDITAR_PASS###########################################################################
@@ -95,6 +96,7 @@ def mostrar_datos (request) :
         perfil = InfoExtra.objects.get(user=usuario)
         link = perfil.link
         avatar = perfil.avatar
+        descripcion = perfil.descripcion
         
-    return render(request, 'cuentas/mostrar_datos.html', {'nombre' : nombre, 'apellido' : apellido, 'email' : email, 'link' : link, 'avatar' : avatar})
+    return render(request, 'cuentas/mostrar_datos.html', {'nombre' : nombre, 'apellido' : apellido, 'email' : email, 'link' : link, 'avatar' : avatar, 'descripcion' : descripcion})
 
