@@ -1,0 +1,23 @@
+{% extends "compartidos/base.html" %}
+
+{% block head %}
+<title>Datos del perfil</title>
+{% endblock head %}
+
+{% block h2_header %}
+<h2 class="masthead-heading mb-0">Datos del perfil </h2>
+{% endblock h2_header %}
+
+{% block main %}
+
+<ul>
+<li>Nombre : {{nombre}}</li>
+<li>Apellido : {{apellido}}</li>
+<li>Email : {{email}}</li>
+<li>Link : {{link}}</li>
+<li>Avatar : <img src={{avatar.url}} alt="" height = '80mp'></li>
+
+
+</ul>
+
+{% endblock main %}

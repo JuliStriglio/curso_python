@@ -78,3 +78,23 @@ class CambiarContrasenia (LoginRequiredMixin, PasswordChangeView):
     form_class = formularioCambiarPass
     template_name = 'cuentas/editar_pass.html'
     success_url = reverse_lazy('editar_perfil')
+
+
+#MOSTRAR_DATOS#########################################################################
+
+def mostrar_datos (request) : 
+    
+    if request.user.is_authenticated : 
+        
+        usuario = request.user
+        
+        nombre = usuario.first_name
+        apellido = usuario.last_name
+        email = usuario.email
+        
+        perfil = InfoExtra.objects.get(user=usuario)
+        link = perfil.link
+        avatar = perfil.avatar
+        
+    return render(request, 'cuentas/mostrar_datos.html', {'nombre' : nombre, 'apellido' : apellido, 'email' : email, 'link' : link, 'avatar' : avatar})
+
