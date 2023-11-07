@@ -40,10 +40,13 @@
                         {% if request.user.infoextra.avatar %}
                             <img src={{request.user.infoextra.avatar.url}} alt="" height = '40px'>
                         {% endif %}
+                 
                         <li class="nav-item"><a class="nav-link" href={% url "editar_perfil" %}>{{request.user.username}}</a></li>
                         <li class="nav-item"><a class="nav-link" href={% url "mostrar_datos" %}>Perfil</a></li>
                         <li class="nav-item"><a class="btn btn-warning" href={% url "logout" %}>Cerrar sesion</a></li>
-                        
+                        <li class="nav-item"><a class="btn btn-primary" href={% url "ver_chats" %}> Chat </a></li>
+
+                        {% block bloque_nav_items_chat %}{% endblock bloque_nav_items_chat %}
                         {% else %}
                         <li class="nav-item"><a class="btn btn-primary" href={% url "login" %}>Iniciar sesion</a></li>
                         <li class="nav-item"><a class="btn btn-warning" href={% url "registro" %}>Registrarse</a></li>

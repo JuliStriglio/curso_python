@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'nueva',
     'ckeditor',
     'cuentas',
+    'mensajeria',
     ]
 
 MIDDLEWARE = [
