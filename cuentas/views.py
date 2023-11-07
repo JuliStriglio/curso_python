@@ -81,7 +81,7 @@ class CambiarContrasenia (LoginRequiredMixin, PasswordChangeView):
 
 
 #MOSTRAR_DATOS#########################################################################
-
+@login_required
 def mostrar_datos (request) : 
     
     if request.user.is_authenticated : 
