@@ -4,9 +4,7 @@
 <title>Iniciar chat</title>
 {% endblock head %}
 
-{% block bloque_nav_items_chat %}
-<li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href={% url 'borrar_chat' chat.id %}><i class="bi bi-trash"></i> Borrar chat</a></li>
-{% endblock bloque_nav_items_chat %}
+
 
 {% block h2_header %}
 <h2 class="masthead-heading mb-0"> Chats </h2>
@@ -33,7 +31,7 @@
 {% block main %}
 
 <section class="bg-light">
-    <li class="nav-item"><a class="btn btn-primary" href={% url 'borrar_chat' chat.id %}><i class="bi bi-trash"></i> Borrar chat</a></li>
+    <p align='center'><a class="btn btn-primary" href={% url 'borrar_chat' chat.id %}><i class="bi bi-trash"></i> Borrar chat</a></p>
 
     <div class="container p-3 p-lg-4">
         <div class="row gx-4 gx-lg-5 justify-content-center">
